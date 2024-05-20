@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Delete Students</title>
+	<link href="studentstyle.css" rel="stylesheet">
+</head>
+<body>
+<h1><center> Delete Students </center></h1>
+    <form class="form">
+	<table align="center">
+	<tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+	<tr><td>Type the ID number of the student to delete the record </td></tr>
+	<tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+  
+  <tr><td><input name="studentId" id="studentId" type="number" placeholder="studentId"></td></tr>
+      
+	  <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+	
+   <tr><td>  <button type="submit" class="button-css">Submit</button></td></tr>
+   
+  </form>
+ <tr><td> <div id="result" style="color:red"></div></td></tr>
+    </table>
+	
+	<script>
+	
+     const formE1 = document.querySelector('.form');
+     
+formE1.addEventListener('submit', event => {
+   event.preventDefault();
+
+  
+var num=document.getElementById("studentId").value;  
+
+    fetch('http://localhost:8081/student/' + num, {
+         method: 'DELETE' ,
+		 headers: {
+        'Content-Type': 'application/json; charset=UTF-8'
+    },
+         
+         
+    });
+	result.innerText = "Student has been deleted successfully"; 
+});	
+ 
+
+  
+
+  
+  
+    </script>
+</body>
+</html>

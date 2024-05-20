@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registration Details</title>
+	<link href="studentstyle.css" rel="stylesheet">
+</head>
+<body>
+<h1><center> Registration Form </center></h1>
+    <form class="form">
+	<table align="center">
+	<tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+	<tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+   <tr><td>User ID </td><td>
+   <input name="userId" type="number" placeholder="userId"></td></tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+   <tr><td>User Name </td>
+   <td><input name="username" type="text" placeholder="username"></td></tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+	<tr><td>Password </td>
+	<td><input name="password" type="password" placeholder="password"></td></tr>
+	 <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+	<tr><td><button type="submit" class="button-css">Submit</button></td></tr>
+	 <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+  </form>
+  
+  <tr><td><div id="result" style="color:red"></div></td></tr>
+  </table>
+    <script>
+	
+     const formE1 = document.querySelector('.form');
+     
+formE1.addEventListener('submit', event => {
+   event.preventDefault();
+
+   const formData = new FormData(formE1);
+   const data = Object.fromEntries(formData);
+
+
+    fetch('http://localhost:8085/register', {
+         method: 'POST' ,
+		 headers: {
+        'Content-Type': 'application/json; charset=UTF-8'
+    },
+         
+         body: JSON.stringify(data)
+    });
+	result.innerText = "Registration Successful";
+	location.href="mainhomepage.html";
+});	
+ 
+
+  
+
+  
+  
+    </script>
+</body>
+</html>

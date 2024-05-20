@@ -1,0 +1,115 @@
+<html lang="en">
+  
+<head>
+    <meta charset="UTF-8">
+    <title>Student Details</title>
+  <link href="studentstyle.css" rel="stylesheet">
+    
+    <script src=
+"https://code.jquery.com/jquery-3.5.1.js">
+    </script>
+  
+    
+    <style>
+        table {
+            margin: 0 auto;
+            font-size: large;
+           
+        }
+  
+        td {
+            background-color: light grey;
+            border: 1px solid black;
+        }
+  
+        th,
+        td {
+            font-weight: bold;
+            border: 1px solid black;
+            padding: 12px;
+            text-align: center;
+        }
+  
+        td {
+            font-weight: lighter;
+        }
+    </style>
+</head>
+  
+<body>
+    <section>
+        <h1>Student Mangement System</h1>
+  
+        
+        <table id='table'>
+            
+            <tr>
+			<th>ID</th>
+                <th>First Name</th>
+                <th>Surname</th>
+                <th>Year</th>
+				<th>DOB</th>
+				<th>School Name</th>
+				<th>Guardian Name</th>
+				<th>Guardian No</th>
+				<th>Address</th>
+				
+                
+            </tr>
+  
+            <script>
+                $(document).ready(function () {
+  
+                    
+                    $.getJSON("http://localhost:8081/student/allstudents", 
+                            function (data) {
+                        var student = '';
+  
+                        
+                        $.each(data, function (key, value) {
+  
+                            
+                            student += '<tr>';
+                            
+  
+                            student += '<td>' + 
+                                value.studentId + '</td>';
+								
+								student += '<td>' + 
+                                value.firstName + '</td>';
+  
+                            student += '<td>' + 
+                                value.surName + '</td>';
+  
+                            student += '<td>' + 
+                                value.year + '</td>';
+								
+								student += '<td>' + 
+                                value.dob + '</td>';
+  
+                             student += '<td>' + 
+                                value.schoolName + '</td>';
+							
+							student += '<td>' + 
+                                value.guardianName + '</td>';
+								
+							student += '<td>' + 
+                                value.guardianNo + '</td>';
+								
+							student += '<td>' + 
+                                value.address + '</td>';
+  
+                            
+  
+                            student += '</tr>';
+                        });
+                          
+                       
+                        $('#table').append(student);
+                    });
+                });
+            </script>
+    </section>
+</body>
+  
+</html>

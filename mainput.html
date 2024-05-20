@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Student Details</title>
+	<link href="studentstyle.css" rel="stylesheet">
+</head>
+<body>
+<h1><center> Edit Students Details </center></h1>
+    <form class="form">
+	<table align="center">
+	<tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+	<tr><td>
+	Type the ID number </td>
+  
+<td>  <input name="studentId" id="studentId" type="number" placeholder="studentId"></td></tr>
+<tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+     
+	 <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+	  
+	 <tr><td> First Name </td>
+	 <td><input name="firstName" type="text" placeholder="firstName"></td></tr>
+	 <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+  <tr><td> Surname </td>
+  <td> <input name="surName" type="text" placeholder="surName"></td></tr>
+  <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+  <tr> <td> Year </td>
+  <td>  <input name="year" type="number" placeholder="year"></td></tr>
+  <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+	<tr> <td> Date Of Birth </td>
+	<td><input name="dob" type="text" placeholder="dob"></td></tr>
+	<tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+	<tr> <td> School Name </td>
+	<td><input name="schoolName" type="text" placeholder="schoolName"></td></tr>
+	<tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+	<tr><td> Guardian Name </td>
+	<td><input name="guardianName" type="text" placeholder="guardianName"></td></tr>
+	<tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+	<tr> <td> Guardian No </td>
+	<td><input name="guardianNo" type="number" placeholder="guardianNo"></td></tr>
+	<tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+	<tr> <td> Address </td>
+	<td><input name="address" type="text" placeholder="address"></td></tr>
+	<tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+    <tr> </tr>
+   <tr> </tr>
+   <tr> </tr>
+	
+    <tr><td><button type="submit" class="button-css" role="button">Submit</button></td></tr>
+	
+  </form>
+  
+  <tr><td>  <div id="result" style="color:red"></div> </td></tr>
+	
+	</table>
+	<script>
+	
+     const formE1 = document.querySelector('.form');
+     
+formE1.addEventListener('submit', event => {
+   event.preventDefault();
+
+   const formData = new FormData(formE1);
+   const data = Object.fromEntries(formData);
+var num=document.getElementById("studentId").value;  
+
+    fetch('http://localhost:8081/student/update/' + num, {
+         method: 'PUT' ,
+		 headers: {
+        'Content-Type': 'application/json; charset=UTF-8'
+    },
+         
+         body: JSON.stringify(data)
+    });
+	result.innerText = "Student has been updated successfully";
+});	
+ 
+
+  
+
+  
+  
+    </script>
+</body>
+</html>
